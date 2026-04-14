@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bharathi K | AI Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  .menu-toggle{
+  display:none;
+  font-size:1.8rem;
+  cursor:pointer;
+  color:white;
+}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --purple1:#1a0533;
+    --purple2:#2d0a5e;
+    --purple3:#4a1580;
+    --accent:#a855f7;
+    --accent2:#7c3aed;
+    --pink:#ec4899;
+    --text:#e2d9f3;
+    --muted:#a78bc4;
+    --card:#ffffff12;
+    --cardborder:#ffffff20;
+  }
+  html{scroll-behavior:smooth;}
+body{
+  font-family:'DM Sans',sans-serif;
+  background: linear-gradient(-45deg, #1a0533, #2d0a5e, #4a1580, #0f0528);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+ 
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(15,5,40,0.85);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--cardborder);
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 3rem;height:64px;
+  }
+  .logo{
+    font-family:'Syne',sans-serif;
+    font-weight:700;font-size:1.3rem;
+    background:linear-gradient(90deg,#a855f7,#ec4899);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .nav-links{display:flex;gap:2.5rem;list-style:none;}
+  .nav-links a{
+    color:var(--muted);text-decoration:none;
+    font-size:.85rem;font-weight:500;letter-spacing:.08em;
+    text-transform:uppercase;transition:color .2s;
+    position:relative;padding-bottom:4px;
+  }
+  .nav-links a:hover,.nav-links a.active{color:#fff;}
+  .nav-links a.active::after{
+    content:'';position:absolute;bottom:0;left:0;right:0;
+    height:2px;background:var(--accent);border-radius:2px;
+  }
+ 
+  /* SECTIONS */
+section{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:80px 5% 60px;
+  position:relative; /* ADD THIS */
+} 
+  /* HOME */
+  #home{flex-direction:column;text-align:center;padding-top:120px;}
+  .avatar{
+    width:120px;height:120px;border-radius:50%;
+    background:linear-gradient(135deg,#1a0533,#2d0a5e);
+    border:3px solid transparent;
+    background-clip:padding-box;
+    box-shadow:0 0 0 3px var(--accent),0 0 0 6px rgba(168,85,247,.2);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'DM Sans',sans-serif;font-size:3.8rem;font-weight:600;
+    margin:0 auto 2rem;
+  }
+  .hero-name{
+    font-family:'Syne',sans-serif;font-size:3.2rem;font-weight:800;
+    background:linear-gradient(90deg,#c084fc,#ec4899,#a855f7);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    margin-bottom:1.2rem;
+  }
+  .role-tags{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem;}
+  .tag{
+    padding:.45rem 1.1rem;border-radius:999px;
+    border:1px solid var(--cardborder);
+    background:var(--card);
+    font-size:.9rem;color:var(--text);
+  }
+  .hero-sub{color:var(--muted);font-size:1rem;margin-bottom:2.5rem;max-width:500px;margin-left:auto;margin-right:auto;}
+  .btn-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+  .btn-primary{
+    padding:.7rem 1.8rem;border-radius:8px;
+    background:linear-gradient(135deg,var(--accent2),var(--accent));
+    color:#fff;font-weight:500;font-size:.95rem;
+    text-decoration:none;border:none;cursor:pointer;transition:opacity .2s;
+  }
+  .btn-primary:hover{opacity:.85;}
+  .btn-outline{
+    padding:.7rem 1.8rem;border-radius:8px;
+    border:1px solid var(--accent);
+    color:var(--accent);font-weight:500;font-size:.95rem;
+    text-decoration:none;transition:background .2s;
+  }
+  .btn-outline:hover{background:rgba(168,85,247,.15);}
+  .scroll-arrow{margin-top:3rem;color:var(--accent);font-size:1.5rem;animation:bounce 2s infinite;}
+  @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
+ 
+  /* SECTION HEADER */
+  .sec-title{
+    font-family:'Syne',sans-serif;font-size:2.4rem;font-weight:700;
+    text-align:center;margin-bottom:.5rem;color:#fff;
+  }
+  .sec-sub{text-align:center;color:var(--muted);margin-bottom:3rem;font-size:.95rem;}
+ 
+  /* ABOUT */
+  #about{flex-direction:column;}
+  .about-grid{display:grid;grid-template-columns:1fr 340px;gap:3rem;align-items:start;max-width:1000px;width:100%;}
+  .about-text p{color:var(--text);line-height:1.8;margin-bottom:1.2rem;font-size:.98rem;}
+  .stat-cards{display:flex;flex-direction:column;gap:1rem;}
+  .stat-card{
+    background:rgba(168,85,247,.12);
+    border:1px solid rgba(168,85,247,.25);
+    border-radius:12px;padding:1rem 1.2rem;
+    display:flex;align-items:center;gap:1rem;
+  }
+  .stat-icon{
+    width:44px;height:44px;border-radius:10px;
+    background:linear-gradient(135deg,var(--accent2),var(--accent));
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.1rem;flex-shrink:0;
+  }
+  .stat-val{font-family:'Syne',sans-serif;font-weight:700;font-size:1.2rem;color:#fff;}
+  .stat-label{font-size:.8rem;color:var(--muted);}
+  .skill-tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem;}
+  .skill-tag{
+    padding:.35rem .85rem;border-radius:6px;
+    background:rgba(255,255,255,.08);border:1px solid var(--cardborder);
+    font-size:.82rem;color:var(--text);font-weight:500;
+  }
+ 
+  /* PROJECTS */
+  #projects{flex-direction:column;}
+  .projects-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.5rem;
+  max-width:1200px;
+  margin:auto;
+  }
+  .project-card{
+    background:rgba(255,255,255,.06);
+    border:1px solid var(--cardborder);
+    border-radius:16px;padding:1.8rem;
+    transition:border-color .2s,transform .2s;
+  }
+  .project-card:hover{border-color:rgba(168,85,247,.5);transform:translateY(-4px);}
+  .proj-icon{
+    width:52px;height:52px;border-radius:12px;
+    background:linear-gradient(135deg,var(--accent2),var(--pink));
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.3rem;margin-bottom:1.2rem;
+  }
+  .proj-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;color:#fff;margin-bottom:.7rem;}
+  .proj-desc{color:var(--muted);font-size:.875rem;line-height:1.7;margin-bottom:1.2rem;}
+  .tech-tags{display:flex;flex-wrap:wrap;gap:.5rem;}
+  .metrics{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.5rem;
+  margin:1rem 0 0.6rem;
+}
+
+.metric-tag{
+  padding:0.3rem 0.8rem;
+  border-radius:999px;
+  background:rgba(236,72,153,0.15);
+  border:1px solid rgba(236,72,153,0.3);
+  font-size:0.75rem;
+  color:#f9a8d4;
+  font-weight:500;
+}
+
+/* override spacing */
+.tech-tags{
+  margin-top:0.6rem;
+}
+  .tech-tag{
+    padding:.25rem .7rem;border-radius:999px;
+    background:rgba(168,85,247,.15);
+    border:1px solid rgba(168,85,247,.3);
+    font-size:.75rem;color:#c084fc;font-weight:500;text-transform:uppercase;letter-spacing:.05em;
+  }
+ 
+  /* EXPERIENCE */
+  #experience{flex-direction:column;}
+  .exp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;max-width:900px;width:100%;}
+  .exp-card{
+    background:rgba(255,255,255,.06);
+    border:1px solid var(--cardborder);
+    border-radius:16px;padding:1.8rem;
+    display:flex;gap:1rem;align-items:flex-start;
+  }
+  .exp-icon{
+    width:52px;height:52px;border-radius:12px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+  }
+  .exp-icon.orange{background:linear-gradient(135deg,#f97316,#fb923c);}
+  .exp-icon.purple{background:linear-gradient(135deg,#7c3aed,#a855f7);}
+  .exp-role{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#fff;}
+  .exp-sub{color:var(--accent);font-size:.82rem;margin:.25rem 0 .6rem;}
+  .exp-desc{color:var(--muted);font-size:.85rem;line-height:1.6;}
+ 
+  /* EDUCATION */
+  #education{flex-direction:column;}
+  .edu-list{display:flex;flex-direction:column;gap:1rem;max-width:800px;width:100%;}
+  .edu-card{
+    background:rgba(255,255,255,.06);
+    border:1px solid var(--cardborder);
+    border-radius:14px;padding:1.2rem 1.5rem;
+    display:flex;align-items:center;gap:1.2rem;
+  }
+  .edu-icon{
+    width:52px;height:52px;border-radius:12px;flex-shrink:0;
+    background:linear-gradient(135deg,var(--accent2),var(--pink));
+    display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+  }
+  .edu-degree{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#fff;}
+  .edu-meta{color:var(--muted);font-size:.85rem;margin-top:.2rem;}
+ 
+  /* CONTACT */
+#contact{
+  flex-direction:column;
+  justify-content:flex-start;
+  padding-top:120px;
+}
+.contact-desc{
+  color:var(--muted);
+  text-align:center;
+  max-width:600px;
+  margin:12px auto 32px;
+  line-height:1.7;
+  font-size:.95rem;
+}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:700px;width:100%;}
+  #contact{
+  justify-content: flex-start;
+  padding-top:120px;
+}
+  .contact-card{
+    background:rgba(255,255,255,.06);
+    border:1px solid var(--cardborder);
+    border-radius:14px;padding:1.2rem 1.5rem;
+    display:flex;align-items:center;gap:1rem;
+    text-decoration:none;transition:border-color .2s;cursor:pointer;
+  }
+  .contact-card:hover{border-color:rgba(168,85,247,.5);}
+  .c-icon{
+    width:46px;height:46px;border-radius:10px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+  }
+  .c-icon.red{background:linear-gradient(135deg,#ef4444,#f97316);}
+  .c-icon.blue{background:linear-gradient(135deg,#0ea5e9,#6366f1);}
+  .c-icon.green{background:linear-gradient(135deg,#10b981,#06b6d4);}
+  .c-icon.violet{background:linear-gradient(135deg,#7c3aed,#a855f7);}
+  .c-label{font-family:'Syne',sans-serif;font-weight:600;font-size:.95rem;color:var(--accent);}
+  .c-val{font-size:.82rem;color:var(--muted);margin-top:.15rem;}
+ 
+  /* FOOTER */
+  footer{text-align:center;padding:2rem;color:var(--muted);font-size:.85rem;border-top:1px solid var(--cardborder);}
+ 
+  /* RESPONSIVE */
+  @media(max-width:700px){
+    nav{padding:0 1.2rem;}
+    .nav-links{gap:1.2rem;}
+    .hero-name{font-size:2rem;}
+    .about-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .menu-toggle{
+  display:block;
+}
+
+.nav-links{
+  position:absolute;
+  top:70px;
+  right:0;
+  background:#1a0533;
+  width:100%;
+  flex-direction:column;
+  align-items:center;
+  gap:1.5rem;
+  padding:1rem 0;
+  display:none;
+}
+
+.nav-links.active{
+  display:flex;
+}
+  }
+  @media(max-width:900px){
+  .projects-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px){
+  .projects-grid{
+    grid-template-columns:1fr;
+  }
+}
+.scroll-down{
+  position:absolute;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:1.5rem;
+  color:var(--accent);
+  animation:bounce 2s infinite;
+  opacity:0.7;
+  text-decoration:none;
+}
+
+.scroll-down:hover{
+  opacity:1;
+}
+
+@keyframes bounce{
+  0%,100%{transform:translate(-50%,0);}
+  50%{transform:translate(-50%,8px);}
+}
+
+.fade{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 0.8s ease;
+}
+
+.fade.show{
+  opacity:1;
+  transform:translateY(0);
+}
+@keyframes gradientMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+.cursor-glow{
+  position:fixed;
+  width:500px;
+  height:500px;
+  background:radial-gradient(circle, rgba(168,85,247,0.35), rgba(236,72,153,0.25), transparent 70%);
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+  z-index:0;
+  filter:blur(80px);
+  transition: all 0.1s ease;
+}
+
+</style>
+</head>
+<body>
+<div class="cursor-glow"></div>
+<div class="bg-light l1"></div>
+<div class="bg-light l2"></div>
+ 
+<nav>
+  <div class="logo">Bharathi.K</div>
+  <div class="menu-toggle">&#9776;</div> 
+  <ul class="nav-links">
+    <li><a href="#home" class="active">HOME</a></li>
+    <li><a href="#about">ABOUT</a></li>
+    <li><a href="#projects">PROJECTS</a></li>
+    <li><a href="#experience">EXPERIENCE</a></li>
+    <li><a href="#education">EDUCATION</a></li>
+    <li><a href="#contact">CONTACT</a></li>
+  </ul>
+</nav>
+ 
+<!-- HOME -->
+<section id="home">
+  <div class="avatar">B</div>
+  <h1 class="hero-name">Hi, I'm Bharathi</h1>
+  <div class="role-tags">
+    <span class="tag">AI Engineer</span>
+    <span class="tag">LLM Developer</span>
+    <span class="tag">Data Analyst</span>
+  </div>
+<p class="hero-sub">
+I build AI systems that turn messy data into decisions — from RAG pipelines to real-time SQL generation and analytics dashboards.
+</p>  <div class="btn-row">
+    <a href="#projects" class="btn-primary">View Projects</a>
+    <a href="#contact" class="btn-outline">Get in Touch</a>
+  </div>
+  <a href="#about" class="scroll-down">⌄</a>
+</section>
+ 
+<!-- ABOUT -->
+<section id="about" class="fade">
+  <h2 class="sec-title">About Me</h2>
+  <p class="sec-sub"></p>
+  <div class="about-grid">
+    <div>
+      <div class="about-text">
+        <p>I'm an AI Engineer with hands-on experience building LLM-based conversational systems that integrate structured databases and unstructured documents. My work sits at the intersection of AI and data — turning complex queries into actionable insights.</p>
+        <p>From implementing RAG pipelines and SQL generation workflows to building Power BI dashboards backed by PostgreSQL. I've also trained interns on AI pipeline architecture and contributed to system design decisions.</p>
+      </div>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">RAG</span>
+        <span class="skill-tag">LangChain</span>
+        <span class="skill-tag">FAISS</span>
+        <span class="skill-tag">LLM</span>
+        <span class="skill-tag">Azure AI</span>
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">Postgres DB</span>
+        <span class="skill-tag">Gen AI</span>
+      </div>
+    </div>
+    <div class="stat-cards">
+      <div class="stat-card">
+        <div class="stat-icon">&#9881;</div>
+        <div>
+          <div class="stat-val">10+ Months</div>
+          <div class="stat-label">Professional Experience</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">&#128640;</div>
+        <div>
+          <div class="stat-val">3+ Projects</div>
+          <div class="stat-label">Delivered &amp; Ongoing</div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <a href="#projects" class="scroll-down">⌄</a>
+</section>
+ 
+<!-- PROJECTS -->
+<section id="projects" class="fade">
+  <h2 class="sec-title">Featured Projects</h2>
+  <p class="sec-sub">Real-world AI &amp; analytics work I've contributed to</p>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="proj-icon">&#129504;</div>
+      <div class="proj-title">AI Chatbot — RAG, SQL &amp; Document Intelligence</div>
+      <p class="proj-desc">Built an AI chatbot using RAG + SQL that answers business queries from databases and PDFs. Enabled real-time insights with automated charts and reduced manual analysis effort.</p>
+    <div class="metrics">
+      <span class="metric-tag">Handled 1000+ queries</span>
+      <span class="metric-tag">Reduced analysis time</span>
+    </div>
+
+    <div class="tech-tags">
+      <span class="tech-tag">LLM</span>
+      <span class="tech-tag">RAG</span>
+      <span class="tech-tag">FAISS</span>
+      <span class="tech-tag">LangChain</span>
+      <span class="tech-tag">Python</span>
+    </div>
+      
+    </div>
+    <div class="project-card">
+      <div class="proj-icon">&#128202;</div>
+      <div class="proj-title">NIFCO — Power BI &amp; Oracle DB Integration</div>
+      <p class="proj-desc">Connected Oracle DB and PostgreSQL to Power BI, configured gateway and scheduled refresh. Built interactive dashboards using DAX functions and published to Power BI Service with workspace management for data-driven reporting.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Power BI</span>
+        <span class="tech-tag">Oracle DB</span>
+        <span class="tech-tag">DAX</span>
+        <span class="tech-tag">PostgreSQL</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="proj-icon">&#128065;</div>
+      <div class="proj-title">ProSight — Customer Journey Analytics</div>
+      <p class="proj-desc">Created synthetic datasets simulating customer footfall and behavior. Assisted in deep learning model training for Gender &amp; Age Classification. Contributed to architecture, market research, and technical documentation.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Deep Learning</span>
+        <span class="tech-tag">Synthetic Data</span>
+      </div>
+    </div>
+    <div class="project-card">
+
+  <div class="proj-icon">🤖</div>
+
+  <div class="proj-title">
+    Jarvis AI Chatbot
+  </div>
+
+  <p class="proj-desc">
+    RAG + SQL + PDF-based AI chatbot with vector search and real-time responses.
+  </p>
+
+  <div class="metrics">
+    <span class="metric-tag">RAG + SQL</span>
+    <span class="metric-tag">FAISS</span>
+  </div>
+
+  <div class="tech-tags">
+    <span class="tech-tag">Python</span>
+    <span class="tech-tag">Corpus Memory</span>
+    <span class="tech-tag">PostgreSQL</span>
+  </div>
+
+  <a href="https://github.com/BHARATHI2820/Jarvis-Chatbot" 
+     target="_blank" 
+     class="btn-outline" 
+     style="margin-top:1rem;display:inline-block;">
+     View Code
+  </a>
+
+</div>
+  </div>
+  <a href="#experience" class="scroll-down">⌄</a>
+</section>
+ 
+<!-- EXPERIENCE -->
+<section id="experience" class="fade">
+  <h2 class="sec-title">Experience</h2>
+  <p class="sec-sub">My professional journey and milestones</p>
+  <div class="exp-grid">
+    <div class="exp-card">
+      <div class="exp-icon orange">&#128188;</div>
+      <div>
+        <div class="exp-role">Junior Software Engineer</div>
+        <div class="exp-sub">Prowesstics IT Services — June 2025 – Present</div>
+        <div class="exp-desc">Contributed to LLM-based conversational AI systems, SQL generation pipelines, and RAG document processing. Maintained and enhanced production AI features. Trained interns on AI pipeline architecture.</div>
+      </div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-icon purple">&#129504;</div>
+      <div>
+        <div class="exp-role">AI &amp; Data Engineer</div>
+        <div class="exp-sub"> Azure Llama (Maverick) /LangChain / FAISS DB / CHROMA DB </div>
+        <div class="exp-desc">Built and maintained multi-step AI workflows including query processing, vector retrieval, SQL validation, and automated insight generation over databases and documents.</div>
+      </div>
+    </div>
+  </div>
+  <a href="#education" class="scroll-down">⌄</a>
+</section>
+ 
+<!-- EDUCATION -->
+<section id="education" class="fade">
+  <h2 class="sec-title">Education</h2>
+  <p class="sec-sub">My academic background and qualifications</p>
+  <div class="edu-list">
+    <div class="edu-card">
+      <div class="edu-icon">&#127891;</div>
+      <div>
+        <div class="edu-degree">Master of Computer Application (MCA)</div>
+        <div class="edu-meta">Dr. M.G.R Educational and Research Institute &bull; 2022 – 2024 |  75%</div>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon">&#127891;</div>
+      <div>
+        <div class="edu-degree">Bachelor of Computer Application (BCA)</div>
+        <div class="edu-meta">St. Thomas College of Arts and Science  &bull; 2019 – 2022  |  70% </div>
+      </div>
+    </div>
+    <div class="edu-card">
+
+      <div class="edu-icon">
+        <i class="fa-solid fa-user-graduate"></i>
+      </div>
+
+      <div class="edu-content">
+        <div class="edu-degree">Data Analytics Internship</div>
+        <div class="edu-meta">
+          Besant Technologies • 6 Months • Certification Completed
+        </div>
+      </div>
+
+    </div>
+  <a href="#contact" class="scroll-down">⌄</a>
+</section>
+ 
+<!-- CONTACT -->
+<section id="contact" class="fade">
+  <h2 class="sec-title">Let's Connect</h2>
+  <p class="contact-desc">Open to new AI Engineer opportunities. Feel free to reach out for collaborations, roles, or just a tech chat!</p>
+<div class="contact-grid">
+
+  <a class="contact-card" href="mailto:bharathinathan31@gmail.com">
+    <div class="c-icon red">
+      <i class="fa-solid fa-envelope"></i>
+    </div>
+    <div>
+      <div class="c-label">Email</div>
+      <div class="c-val">bharathinathan31@gmail.com</div>
+    </div>
+  </a>
+
+  <a class="contact-card" href="https://www.linkedin.com/in/bharathi-k" target="_blank">
+    <div class="c-icon blue">
+      <i class="fa-brands fa-linkedin-in"></i>
+    </div>
+    <div>
+      <div class="c-label">LinkedIn</div>
+      <div class="c-val">linkedin.com/in/bharathi-k</div>
+    </div>
+  </a>
+
+  <a class="contact-card" href="https://github.com/BHARATHI2820" target="_blank">
+    <div class="c-icon green">
+      <i class="fa-brands fa-github"></i>
+    </div>
+    <div>
+      <div class="c-label">GitHub</div>
+      <div class="c-val">github.com/bharathi-k</div>
+    </div>
+  </a>
+
+  <div class="contact-card">
+    <div class="c-icon violet">
+      <i class="fa-solid fa-briefcase"></i>
+    </div>
+    <div>
+      <div class="c-label">Open to Work</div>
+      <div class="c-val">AI Engineer / GenAI Roles</div>
+    </div>
+  </div>
+
+</div>
+</section>
+ 
+<footer>
+  <p>Designed &amp; built by Bharathi K &mdash; AI Engineer, Chennai</p>
+</footer>
+ <script>
+const links = document.querySelectorAll('.nav-links a');
+const sections = document.querySelectorAll('section');
+
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 100) cur = s.id;
+  });
+  links.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + cur);
+  });
+
+  // fade animation
+  document.querySelectorAll('.fade').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      el.classList.add('show');
+    }
+  });
+});
+
+// cursor glow
+const glow = document.querySelector('.cursor-glow');
+
+document.addEventListener('mousemove', (e) => {
+  glow.style.left = e.clientX + 'px';
+  glow.style.top = e.clientY + 'px';
+});
+const toggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+toggle.addEventListener('click',()=>{
+  navLinks.classList.toggle('active');
+});
+</script>
